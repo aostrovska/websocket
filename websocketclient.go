@@ -5,6 +5,7 @@ import (
 	"log"
 	"github.com/gorilla/websocket"
 	"time"
+	"fmt"
 )
  
 
@@ -28,7 +29,9 @@ func main() {
 
 	go read(c)
 	for {
-		err := c.WriteMessage(websocket.TextMessage, []byte("Hi, I'm client 1"))
+		var mes string
+		fmt.Scan(&mes)
+		err := c.WriteMessage(websocket.TextMessage, []byte(mes))
 		if err != nil {
 				log.Println("read:", err)
 				return

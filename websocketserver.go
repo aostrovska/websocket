@@ -58,7 +58,6 @@ func handleMessages() {
 				log.Println(err)
 				client.Close()
 				delete(clients, client)
-				return
 			}
 		}
 	}
