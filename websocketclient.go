@@ -3,8 +3,8 @@ package main
 
 import (
 	"log"
-	"time"
 	"github.com/gorilla/websocket"
+	"time"
 )
  
 
@@ -16,7 +16,6 @@ func read(c *websocket.Conn){
 				return
 			}
 		log.Printf("user: %s", message)
-		time.Sleep(1*time.Second)
 	}
 }
 
@@ -34,11 +33,7 @@ func main() {
 				log.Println("read:", err)
 				return
 			}
-		err = c.WriteMessage(websocket.TextMessage, []byte("Hi, I'm client 2"))
-		if err != nil {
-				log.Println("read:", err)
-				return
-			}
+		time.Sleep(1*time.Second)
 	}
 	/*	_, message, err := c.ReadMessage()
 		if err != nil {
